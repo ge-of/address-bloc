@@ -7,6 +7,9 @@ class AddressBook
   @entries = []
   end
 
+  def nuke_entries
+    @entires = []
+  end
 
   def add_entry(name, phone_number, email)
        # #9

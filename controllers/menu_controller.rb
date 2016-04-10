@@ -15,7 +15,8 @@ require_relative '../models/address_book'
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - View entry number N"
-     puts "6 - Exit"
+     puts "6 - Nuke all entries"
+     puts "7 - Exit"
      print "Enter your selection: "
 
      # #3
@@ -43,6 +44,11 @@ require_relative '../models/address_book'
     view_entry_n
     main_menu
   when 6
+    system "clear"
+    @address_book.nuke_entries
+    puts "All entries destroyed!!"
+    main_menu
+  when 7
     puts "Good-bye!"
     # #8
     exit(0)
@@ -170,6 +176,7 @@ def entry_submenu(entry)
      address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
    end
+
    def edit_entry(entry)
       # #4
       print "Updated name: "
